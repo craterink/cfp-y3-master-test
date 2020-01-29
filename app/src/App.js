@@ -5,16 +5,17 @@ import './App.css';
 class Square extends React.Component {
   render() {
     return (
-      <button className="square">
-        {/* TODO */}
+      <button className="square" onClick={()=>alert(this.props.val)}>
+        {this.props.val}
       </button>
     );
   }
 }
 
 class Board extends React.Component {
+  
   renderSquare(i) {
-    return <Square />;
+    return <Square val={i}/>;
   }
 
   render() {
@@ -48,7 +49,7 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Board player='X'/>
         </div>
         <div className="game-info">
           <div>{/* status */}</div>
@@ -58,6 +59,7 @@ class Game extends React.Component {
     );
   }
 }
+
 
 
 function App() {
