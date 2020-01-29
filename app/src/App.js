@@ -2,22 +2,26 @@ import React from 'react';
 import logo from './stanford.png';
 import './App.css';
 
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello world!
-        </p>
-        <a
-          className="App-link"
-          href="https://en.wikipedia.org/wiki/Water_polo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          What is water polo?
-        </a>
+        <ShoppingList name="Talal" />
       </header>
     </div>
   );
