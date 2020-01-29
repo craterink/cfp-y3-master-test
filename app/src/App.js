@@ -3,10 +3,27 @@ import logo from './stanford.png';
 import './App.css';
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      xo : this.props.val,
+    };
+  }
+  
+  handleClick() {
+  	if (this.state.xo == 'X') {
+  		this.setState({xo:'O'});
+    } else if (this.state.xo == 'O') {
+    	this.setState({xo:''});
+    } else {
+    	this.setState({xo:'X'})
+    }
+  }
+  
   render() {
     return (
-      <button className="square" onClick={()=>alert(this.props.val)}>
-        {this.props.val}
+      <button className="square" onClick={() => this.handleClick()}>
+        {this.state.xo}
       </button>
     );
   }
@@ -15,7 +32,7 @@ class Square extends React.Component {
 class Board extends React.Component {
   
   renderSquare(i) {
-    return <Square val={i}/>;
+    return <Square val=""/>;
   }
 
   render() {
@@ -59,6 +76,9 @@ class Game extends React.Component {
     );
   }
 }
+
+ReactDOM.render(<Game />, document.querySelector("#app"))
+
 
 
 
